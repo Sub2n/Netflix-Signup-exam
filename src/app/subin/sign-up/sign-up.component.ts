@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,7 +11,7 @@ export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   emailHolderUp: boolean;
   pwHolderUp: boolean;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -31,6 +32,10 @@ export class SignUpComponent implements OnInit {
 
     this.emailHolderUp = false;
     this.pwHolderUp = false;
+  }
+
+  onSubmit() {
+    this.router.navigate(['subin/main']);
   }
 
   emailFocus(value: string) {
