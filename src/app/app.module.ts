@@ -15,6 +15,7 @@ import { LoginHeaderComponent } from './subin/login-header/login-header.componen
 import { LoginFooterComponent } from './subin/login-footer/login-footer.component';
 import { SignupComponent } from './hyunjin/signup/signup.component';
 import { SigninComponent } from './hyunjin/signin/signin.component';
+import { MainComponent } from './subin/main/main.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SigninComponent } from './hyunjin/signin/signin.component';
     LoginFooterComponent,
     SignupComponent,
     SigninComponent,
+    MainComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
