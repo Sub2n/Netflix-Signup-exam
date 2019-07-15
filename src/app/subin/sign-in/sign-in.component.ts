@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TestService } from 'src/app/test.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +12,7 @@ export class SignInComponent implements OnInit {
   loginForm: FormGroup;
   emailHolderUp: boolean;
   pwHolderUp: boolean;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private testService: TestService) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -32,6 +33,9 @@ export class SignInComponent implements OnInit {
 
     this.emailHolderUp = false;
     this.pwHolderUp = false;
+
+    this.getMovies();
+    this.getGenre();
   }
 
   onSubmit() {
@@ -44,6 +48,14 @@ export class SignInComponent implements OnInit {
 
   pwFocus(value: string) {
     this.pwHolderUp = value ? true : false;
+  }
+
+  getMovies() {
+    this.testService.getMovie().subscribe(movies => console.log(movies));
+  }
+
+  getGenre() {
+    this.testService.getGenre().subscribe(genres => console.log(genres));
   }
 
   get email() {
